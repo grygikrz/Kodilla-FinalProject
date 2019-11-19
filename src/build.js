@@ -12,6 +12,10 @@ var _MainLayout = require("./components/MainLayout");
 
 var _Root = require("./components/Root");
 
+var _NoMatch = require("./components/NoMatch");
+
+var _ProductPage = require("./components/ProductPage");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -50,6 +54,12 @@ function (_React$Component) {
         exact: true,
         path: "/",
         component: _Root.Root
+      }), _react["default"].createElement(_reactRouterDom.Route, {
+        exact: true,
+        path: "/product",
+        component: _ProductPage.ProductPage
+      }), _react["default"].createElement(_reactRouterDom.Route, {
+        component: _NoMatch.NoMatch
       }))));
     }
   }]);
