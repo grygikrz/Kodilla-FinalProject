@@ -6,8 +6,8 @@ export class ProductPage extends React.Component {
   render() {
     return (
     <div className="container-fluid">
-    <div classNameName="content-wrapper">
-		<div classNameName="item-container">
+    <div className="content-wrapper">
+		<div className="item-container">
 			<div className="container">
 				<div className="col-md-12">
 					<div className="product col-md-3 service-image-left">

@@ -5,8 +5,9 @@ import NavDropdown from 'react-bootstrap/NavDropdown'
 import FormControl from 'react-bootstrap/FormControl'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
+import Cart from './Cart'
 
-import './header.css'
+import './Header.css'
 
 export const Header = props => {
   return (
@@ -25,6 +26,7 @@ export const Header = props => {
             <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
           </NavDropdown>
         </Nav>
+            <Cart />
         <Form inline>
           <FormControl type="text" placeholder="Search" className="mr-sm-2" />
           <Button variant="outline-success">Search</Button>

@@ -1,5 +1,4 @@
 import React from 'react'
-import { render } from 'react-dom'
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -23,5 +22,4 @@ class App extends React.Component {
           );
     }
 }
-
-render(<App />, document.getElementById('app'));
+export default App;

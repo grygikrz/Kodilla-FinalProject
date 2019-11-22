@@ -3,35 +3,45 @@
   "version": "1.0.0",
   "main": "scripts.js",
   "scripts": {
-    "start": "npm-run-all prebuild watch",
-    "prebuild": "babel src/scripts.js --watch --out-file ./src/build.js &",
-    "watch": "parcel src/index.html --open --no-autoinstall --port 8080",
-    "build": "parcel build ./src/index.html"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@babel/plugin-proposal-class-properties": "^7.7.0",
-    "@babel/preset-env": "^7.7.1",
-    "@babel/preset-react": "^7.7.0",
+    "@fortawesome/fontawesome-free-solid": "^5.0.13",
+    "@fortawesome/fontawesome-svg-core": "^1.2.25",
+    "@fortawesome/free-brands-svg-icons": "^5.11.2",
+    "@fortawesome/free-solid-svg-icons": "^5.11.2",
+    "@fortawesome/react-fontawesome": "^0.1.7",
     "bootstrap": "^4.3.1",
-    "components": "^0.1.0",
     "jquery": "^3.4.1",
-    "prop-types": "^15.7.2",
     "react": "^16.12.0",
-    "react-bootstrap": "^1.0.0-beta.14",
+    "react-bootstrap": "^1.0.0-beta.16",
     "react-dom": "^16.12.0",
+    "react-redux": "^7.1.3",
     "react-router-dom": "^5.1.2",
-    "remove": "^0.1.5"
+    "react-scripts": "^3.2.0",
+    "redux": "^4.0.4"
   },
-  "devDependencies": {
-    "@babel/cli": "^7.7.0",
-    "@babel/core": "^7.7.2",
-    "npm-run-all": "^4.1.5",
-    "parcel-bundler": "^1.12.4",
-    "sharp": "^0.23.2",
-    "uglify": "^0.1.5"
+  "devDependencies": {},
+  "description": "",
+  "eslintConfig": {
+    "extends": "react-app"
   },
-  "description": ""
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }

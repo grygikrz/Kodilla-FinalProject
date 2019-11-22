@@ -6,63 +6,61 @@ import Row from 'react-bootstrap/Row'
 import Badge from 'react-bootstrap/Badge'
 import ListGroup from 'react-bootstrap/ListGroup'
 
-var products = [
-  {
-    id: 1,
-    name: 'Product 1',
-    price: '$69.00',
-    status: 'Nowość',
-    image: '/images/Warstwa1.png'
-  },
-  {
-    id: 2,
-    name: 'Product 2',
-    price: '$69.00',
-    status: 'Nowość',
-    image: '/images/Warstwa2.png'
-  },
-  {
-    id: 3,
-    name: 'Product 3',
-    price: '$69.00',
-    status: 'Nowość',
-    image: '/images/Warstwa3.png'
-  },
-  {
-    id: 4,
-    name: 'Product 4',
-    price: '$69.00',
-    status: 'Nowość',
-    image: '/images/Warstwa4.png'
-  },
-  {
-    id: 5,
-    name: 'Product 5',
-    price: '$69.00',
-    status: 'Nowość',
-    image: '/images/Warstwa6.png'
-  },
-  {
-    id: 6,
-    name: 'Product 6',
-    price: '$69.00',
-    status: 'Nowość',
-    image: '/images/Warstwa7.png'
-  }
-];
+
 
 export class Root extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      title: 'Product name A-Z'
+    };
+  }
+
+  productSort = (sort) => {
+
+    if(sort === this.state.title) { return }
+    //
+    // switch (sort) {
+    //   case 'Product name A-Z':
+    //     products.sort((a,b) => ((a.name > b.name) - (a.name < b.name)))
+    //
+    //     break;
+    //   case 'Product name Z-A':
+    //     products.sort((a,b) => ((a.name < b.name) - (a.name > b.name)))
+    //     break;
+    //   case 'Price descending':
+    //     products.sort((a,b) => (parseFloat(a.price) - parseFloat(b.price)))
+    //
+    //       break;
+    //   case 'Price ascending':
+    //     products.sort((a,b) => (parseFloat(b.price) - parseFloat(a.price)))
+    //       break;
+    //   default:
+    //     products
+    // }
+
+  }
+
+  toggleSort = (e) => {
+    e.preventDefault();
+    this.productSort(e.target.innerText)
+    this.setState({title: e.target.innerText})
+
+    e.target.parentNode.parentNode.querySelectorAll('.active').forEach((item) => item.classList.remove('active'))
+    e.target.parentNode.className += ' active'
+
+  }
+
   render() {
     return (
     <Row>
         <div className="col-md-3 order-md-1 mb-3">
-        <h4>Sort by <Badge variant="success">Product name A-Z</Badge></h4>
+        <h4>Sort by <Badge variant="success">{this.state.title}</Badge></h4>
         <ListGroup as="ul">
-          <ListGroup.Item as="li" active>Product name A-Z</ListGroup.Item>
-          <ListGroup.Item as="li">Product name Z-A</ListGroup.Item>
-          <ListGroup.Item as="li" disabled>Morbi leo risus</ListGroup.Item>
-          <ListGroup.Item as="li">Price descending</ListGroup.Item>
-          <ListGroup.Item as="li">Price ascending</ListGroup.Item>
+          <ListGroup.Item as="li" active><a href="#" onClick={this.toggleSort}>Product name A-Z</a></ListGroup.Item>
+          <ListGroup.Item as="li"><a href="#" onClick={this.toggleSort}>Product name Z-A</a></ListGroup.Item>
+          <ListGroup.Item as="li"><a href="#" onClick={this.toggleSort}>Price descending</a></ListGroup.Item>
+          <ListGroup.Item as="li"><a href="#" onClick={this.toggleSort}>Price ascending</a></ListGroup.Item>
         </ListGroup>
         </div>
         <div className="col-md-9 order-md-2">
@@ -103,8 +101,7 @@ export class Root extends React.Component {
                         </Carousel.Caption>
                         </Carousel.Item>
                   </Carousel>
-
-                  <Products items={products} />
+                  <Products />
             </div>
       </Row>
   );
