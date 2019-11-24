@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { MainLayout } from "./components/MainLayout";
-import { Root } from "./components/Root";
+import Root from "./components/Root";
 import { NoMatch } from "./components/NoMatch";
 import { ProductPage } from "./components/ProductPage";
 

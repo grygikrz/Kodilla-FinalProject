@@ -3,18 +3,19 @@ import Button from 'react-bootstrap/Button'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartArrowDown } from '@fortawesome/fontawesome-free-solid'
 import { connect } from 'react-redux'
-
-const mapStateToProps = (state) => {
-  return {
-      items: state.items
-       }
-     }
+import './Products.css'
+import { addToItemCart } from './actions/cartAction'
 
 class Products extends React.Component {
+  handleClick = (id)=>{
+    this.props.addToItemCart(id);
+}
   render() {
-            let sorted = this.props.items.sort((a,b) => (b.name < b.name) ? 1 : -1)
-            console.log(sorted);
-            let prodts = sorted.map(item=>{
+    console.log(this.props);
+
+
+            let itemCheck = this.props.sort ? this.props.sort : this.props.items
+            let prodts = itemCheck.map( item => {
                 return (
                   <div className={'col-lg-4 col-md-6 mb-4'}>
                           <div className={'card h-100'}>
@@ -25,10 +26,10 @@ class Products extends React.Component {
                                 <a href="#">{item.name}</a>
                               </h4>
                               <h5>{item.price}</h5>
-                              <p className={'card-text'}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+                              <p className={'card-text'}>{item.desc}</p>
                             </div>
                             <div className={'card-footer'}>
-                            <Button variant="primary">
+                            <Button variant="primary" onClick={()=>{this.handleClick(item.id)}}>
                               <FontAwesomeIcon icon={["fas", "cart-arrow-down"]}/>Add to Cart
                             </Button>
                             </div>
@@ -41,5 +42,18 @@ class Products extends React.Component {
       }
     }
 
+    const mapStateToProps = (state) => {
 
-export default connect(mapStateToProps)(Products)
+      return {
+          items: state.items,
+          sort: state.sorted
+           }
+         }
+    const mapDispatchToProps= (dispatch)=>{
+
+         return{
+             addToItemCart: (id)=>{dispatch(addToItemCart(id))}
+         }
+     }
+
+export default connect(mapStateToProps,mapDispatchToProps)(Products)

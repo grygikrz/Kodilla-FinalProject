@@ -5,10 +5,10 @@ import Carousel from 'react-bootstrap/Carousel'
 import Row from 'react-bootstrap/Row'
 import Badge from 'react-bootstrap/Badge'
 import ListGroup from 'react-bootstrap/ListGroup'
+import { sortItems } from './actions/sortItems'
+import { connect } from 'react-redux'
 
-
-
-export class Root extends React.Component {
+class Root extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -16,43 +16,20 @@ export class Root extends React.Component {
     };
   }
 
-  productSort = (sort) => {
-
-    if(sort === this.state.title) { return }
-    //
-    // switch (sort) {
-    //   case 'Product name A-Z':
-    //     products.sort((a,b) => ((a.name > b.name) - (a.name < b.name)))
-    //
-    //     break;
-    //   case 'Product name Z-A':
-    //     products.sort((a,b) => ((a.name < b.name) - (a.name > b.name)))
-    //     break;
-    //   case 'Price descending':
-    //     products.sort((a,b) => (parseFloat(a.price) - parseFloat(b.price)))
-    //
-    //       break;
-    //   case 'Price ascending':
-    //     products.sort((a,b) => (parseFloat(b.price) - parseFloat(a.price)))
-    //       break;
-    //   default:
-    //     products
-    // }
-
+  productSort = (items,type) => {
+      this.props.sortedItems(items,type);
   }
 
   toggleSort = (e) => {
-    e.preventDefault();
-    this.productSort(e.target.innerText)
     this.setState({title: e.target.innerText})
-
+    this.productSort(this.props.items,e.target.innerText)
     e.target.parentNode.parentNode.querySelectorAll('.active').forEach((item) => item.classList.remove('active'))
     e.target.parentNode.className += ' active'
-
   }
 
   render() {
     return (
+
     <Row>
         <div className="col-md-3 order-md-1 mb-3">
         <h4>Sort by <Badge variant="success">{this.state.title}</Badge></h4>
@@ -107,3 +84,40 @@ export class Root extends React.Component {
   );
   }
 }
+
+const mapStateToProps = (state) => {
+
+  return {
+      items: state.items,
+      sort: state.sorted,
+      type: state.type
+       }
+     }
+
+const mapDispatchToProps = (dispatch)=>{
+
+    return{
+
+        sortedItems: (items,type)=>{console.log(items)
+          switch (type) {
+            case 'Product name A-Z':
+                dispatch(sortItems(items,'SORT_ITEMS_AZ'))
+              break;
+            case 'Product name Z-A':
+                dispatch(sortItems(items,'SORT_ITEMS_ZA'))
+              break;
+            case 'Price descending':
+                dispatch(sortItems(items,'SORT_ITEMS_PRICEI'))
+              break;
+            case 'Price ascending':
+                dispatch(sortItems(items,'SORT_ITEMS_PRICED'))
+              break;
+            default:
+          }
+
+        }
+
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Root)
