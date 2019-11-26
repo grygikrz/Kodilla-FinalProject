@@ -11,6 +11,8 @@ import Toast from 'react-bootstrap/Toast'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
+
+// Products for root component to display in cards 
 class Products extends React.Component {
   constructor() {
     super();

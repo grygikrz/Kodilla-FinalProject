@@ -15,6 +15,7 @@ import { getProduct } from '../actions/sortItems'
 import Badge from 'react-bootstrap/Badge'
 import Overlay from 'react-bootstrap/Overlay'
 
+// Component with Product page
 class ProductPage extends React.Component {
   constructor() {
     super();

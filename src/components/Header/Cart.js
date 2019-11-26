@@ -9,7 +9,7 @@ import { itemRemove,addQuantity,subtractQuantity} from '../actions/cartAction'
 import './Cart.css'
 import CartStatus from './CartStatus'
 
-
+// Main body of Cart with product items
 class Cart extends React.Component {
   constructor() {
     super();

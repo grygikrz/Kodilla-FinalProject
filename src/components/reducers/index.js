@@ -9,6 +9,8 @@ import Item4 from '../../images/4.jpg'
 import Item5 from '../../images/5.jpg'
 import Item6 from '../../images/6.jpg'
 
+
+//Product item with number of total items and empty basket variable
 const initState = {
     addedItems:[],
     total: 0,
@@ -63,4 +65,6 @@ const initState = {
       }
     ]
 }
+
+//combine and share data between two reducers with redux-reducers plugin
 export const reducer = reduceReducers(initState, itemSorter, cartHandler);

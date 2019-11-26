@@ -1,6 +1,6 @@
 import { SORT_ITEMS_AZ,SORT_ITEMS_ZA,SORT_ITEMS_PRICEI,SORT_ITEMS_PRICED,GET_ITEM } from '../actions/action-types/items-actions'
 
-
+//sorting handlers
 const itemSorter = (state, action)=>{
 
   if(action.type === SORT_ITEMS_AZ){

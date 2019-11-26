@@ -1,6 +1,6 @@
 import { ADD_ITEM_TO_CART,ITEM_REMOVE,SUB_QUANTITY,ADD_DISCOUNT,ADD_QUANTITY,ADD_TRANSPORT } from '../actions/action-types/cart-actions'
 
-
+// Handler for cart functionality - get data from components and compute / return data
 const cartHandler = (state,action)=>{
 console.log(state);
 

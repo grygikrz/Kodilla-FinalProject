@@ -10,7 +10,7 @@ import Item1 from '../images/c1.jpg'
 import Item2 from '../images/c2.jpg'
 import Item3 from '../images/c3.jpg'
 
-
+// Main View / Component of Shop add
 class Root extends React.Component {
   constructor() {
     super();

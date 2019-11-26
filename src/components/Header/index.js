@@ -10,11 +10,11 @@ import Logo from '../../images/logo.png'
 import { Link } from 'react-router-dom'
 
 import './Header.css'
-
+// Return Header Component to main Layout
 export const Header = props => {
   return (
     <Navbar bg="light" fixed="top" variant="dark">
-  <Navbar.Brand href="#home"><img src={Logo} width="200px"/></Navbar.Brand>
+    <Link className="navbar-brand" to={`/`}><img src={Logo} width="200px"/></Link>
   <Nav className="mr-auto">
     <Link to={`/`} className="nav-link">Home</Link>
   </Nav>
