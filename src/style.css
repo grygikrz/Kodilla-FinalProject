@@ -1,0 +1,98 @@
+body {
+  padding: 100px 0 0 0;
+}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    font-weight: 400;
+}
+b, strong {
+    font-weight: 500;
+}
+
+a.btn.btn-success {
+    color: #fff;
+}
+
+.btn.btn-warning.btn-sm.pull-right {
+    color: #fff;
+}
+
+.coupon .small, small {
+      font-size: 85%;
+      line-height: 42px;
+      margin: 0 10px;
+}
+
+.carousel-caption {
+    text-align: left;
+    right: 15%;
+    bottom: 144px;
+    left: 6%;
+    text-shadow: 0px 3px 25px #ffffff;
+}
+
+.badge-success {
+    width: 70px;
+    height: 70px;
+    line-height: 63px;
+    box-shadow: 1px 1px 2px #000;
+    border-radius: 50px;
+    margin: 5px;
+    position: absolute;
+}
+
+.badge-light.sort {
+    background: #34ac36;
+    color: #fff;
+    float: right;
+}
+
+.badge {
+    font-weight: 400;
+    font-size: 79%;
+    margin: 6px 8px;
+    padding: 5px;
+    box-shadow: 1px 1px 1px #434343;
+}
+
+.list-group-item-light.list-group-item-action.active {
+    color: #131313;
+    background-color: #ffffff;
+    border-color: #34ac36;
+    font-weight: 600;
+}
+
+.list-group-item-light.list-group-item-action:focus, .list-group-item-light.list-group-item-action:hover {
+    color: #ffffff;
+    background-color: #28a745;
+}
+
+button.btn.btn-primary {
+    background: transparent;
+    color: #34ac36;
+    border: 1px solid #34ac36;
+    padding: 10px 22px 10px 17px;
+}
+
+button.btn.btn-primary:hover {
+    color: #ffffff;
+    background-color: #28a745;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+    color: #fff;
+    background-color: #615c5c;
+    border-color: #615c5c;
+}
+
+.btn-primary.focus, .btn-primary:focus {
+    box-shadow: 0 0 0 0.2rem #28a74526;
+}
+
+/* footer {
+    background-color: #484646;
+    position: absolute;
+    width: 100%;
+    left: 0px;
+    padding: 0px 0 56px 0;
+    box-shadow: 0px 3px 2px #3f3f3f;
+} */

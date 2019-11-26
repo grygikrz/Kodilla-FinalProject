@@ -10,6 +10,8 @@ import Item5 from '../../images/5.jpg'
 import Item6 from '../../images/6.jpg'
 
 const initState = {
+    addedItems:[],
+    total: 0,
     items: [
       {
         id: 1,
@@ -59,9 +61,6 @@ const initState = {
         desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!',
         image: Item6
       }
-    ],
-    addedItems:[],
-    total: 0
-
+    ]
 }
 export const reducer = reduceReducers(initState, itemSorter, cartHandler);

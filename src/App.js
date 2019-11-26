@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { MainLayout } from "./components/MainLayout";
 import Root from "./components/Root";
 import { NoMatch } from "./components/NoMatch";
-import { ProductPage } from "./components/ProductPage";
+import ProductPage from "./components/ProductPage";
 
 class App extends React.Component {
   render() {
@@ -15,6 +15,7 @@ class App extends React.Component {
           <Switch>
             <Route exact path={"/"} component={Root} />
             <Route exact path={"/product"} component={ProductPage} />
+            <Route exact path="/product/:productid" component={ProductPage} />
             <Route component={NoMatch} />
           </Switch>
         </MainLayout>

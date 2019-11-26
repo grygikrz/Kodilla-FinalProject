@@ -1,26 +1,26 @@
-import { ADD_ITEM_TO_CART,ITEM_REMOVE,SUB_QUANTITY,ADD_QUANTITY,ADD_SHIPPING } from '../actions/action-types/cart-actions'
+import { ADD_ITEM_TO_CART,ITEM_REMOVE,SUB_QUANTITY,ADD_DISCOUNT,ADD_QUANTITY,ADD_TRANSPORT } from '../actions/action-types/cart-actions'
 
 
 const cartHandler = (state,action)=>{
 console.log(state);
-    //INSIDE HOME COMPONENT
+
     if(action.type === ADD_ITEM_TO_CART){
       console.log('Here I am')
           let addedItem = state.items.find(item=> item.id === action.id)
-          //check if the action id exists in the addedItems
+
          let existed_item= state.addedItems.find(item=> action.id === item.id)
          if(existed_item)
          {
             addedItem.quantity += 1
              return{
                 ...state,
-                 total: state.total + addedItem.price
+                 total: parseFloat(state.total) + parseFloat(addedItem.price)
                   }
         }
          else{
             addedItem.quantity = 1;
             //calculating the total
-            let newTotal = state.total + addedItem.price
+            let newTotal = parseFloat(state.total) + parseFloat(addedItem.price)
 
             return{
                 ...state,
@@ -32,63 +32,76 @@ console.log(state);
     }
     if(action.type === ITEM_REMOVE){
         let itemToRemove= state.addedItems.find(item=> action.id === item.id)
-        let new_items = state.addedItems.filter(item=> action.id !== item.id)
+        let newItems = state.addedItems.filter(item=> action.id !== item.id)
 
-        //calculating the total
-        let newTotal = state.total - (itemToRemove.price * itemToRemove.quantity )
-        console.log(itemToRemove)
+        let newTot = parseFloat(state.total) - (parseFloat(itemToRemove.price) * itemToRemove.quantity )
+
         return{
             ...state,
-            addedItems: new_items,
-            total: newTotal
+            addedItems: newItems,
+            total: newTot
         }
     }
-    //INSIDE CART COMPONENT
-    if(action.type=== ADD_QUANTITY){
+
+    if(action.type === ADD_QUANTITY){
         let addedItem = state.items.find(item=> item.id === action.id)
           addedItem.quantity += 1
-          let newTotal = state.total + addedItem.price
+          let newTot = parseFloat(state.total) + parseFloat(addedItem.price)
           return{
               ...state,
-              total: newTotal
+              total: newTot
           }
     }
-    if(action.type=== SUB_QUANTITY){
+    if(action.type === SUB_QUANTITY){
         let addedItem = state.items.find(item=> item.id === action.id)
-        //if the qt == 0 then it should be removed
+
         if(addedItem.quantity === 1){
-            let new_items = state.addedItems.filter(item=>item.id !== action.id)
-            let newTotal = state.total - addedItem.price
+            let newItems = state.addedItems.filter(item=>item.id !== action.id)
+            let newTot = parseFloat(state.total) - parseFloat(addedItem.price)
             return{
                 ...state,
-                addedItems: new_items,
-                total: newTotal
+                addedItems: newItems,
+                total: newTot
             }
         }
         else {
             addedItem.quantity -= 1
-            let newTotal = state.total - addedItem.price
+            let newTot = parseFloat(state.total) - parseFloat(addedItem.price)
             return{
                 ...state,
-                total: newTotal
+                total: newTot
             }
         }
 
     }
 
-    if(action.type=== ADD_SHIPPING){
+    if(action.type === ADD_TRANSPORT){
           return{
               ...state,
-              total: state.total + 6
+              total: parseFloat(state.total) + 5.00
           }
     }
 
-    if(action.type=== 'SUB_SHIPPING'){
+    if(action.type === 'RMV_TRANSPORT'){
         return{
             ...state,
-            total: state.total - 6
+            total: parseFloat(state.total) - 5.00
         }
   }
+
+  if(action.type === ADD_DISCOUNT){
+        return{
+            ...state,
+            total: parseFloat(state.total) - 10.00
+        }
+  }
+
+  if(action.type === 'RMV_DISCOUNT'){
+      return{
+          ...state,
+          total: parseFloat(state.total) + 10.00
+      }
+}
 
   else{
     return state

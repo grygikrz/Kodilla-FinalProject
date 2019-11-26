@@ -25,16 +25,20 @@
 	margin-bottom: 25px;
 }
 
-.product-title{
-	font-size: 20px;
+.product-title {
+    font-size: 25px;
+    line-height: 28px;
+    margin: 10px 0;
 }
 
 .product-desc{
 	font-size: 14px;
 }
 
-.product-price{
-	font-size: 22px;
+.product-price {
+    font-size: 25px;
+    margin: 12px;
+    font-weight: 700;
 }
 
 .product-stock{

@@ -1,4 +1,4 @@
-import { SORT_ITEMS_AZ,SORT_ITEMS_ZA,SORT_ITEMS_PRICEI,SORT_ITEMS_PRICED } from '../actions/action-types/items-actions'
+import { SORT_ITEMS_AZ,SORT_ITEMS_ZA,SORT_ITEMS_PRICEI,SORT_ITEMS_PRICED,GET_ITEM } from '../actions/action-types/items-actions'
 
 
 const itemSorter = (state, action)=>{
@@ -35,6 +35,14 @@ const itemSorter = (state, action)=>{
         return {
             ...state,
             sorted: newItems
+        }
+      }
+  if(action.type === GET_ITEM){
+        let oneItem = state.items.find(item=> action.id === item.id)
+
+        return{
+            ...state,
+            item: oneItem
         }
 
      }else{
