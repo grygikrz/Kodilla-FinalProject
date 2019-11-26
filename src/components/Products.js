@@ -7,21 +7,30 @@ import './Products.css'
 import { addToItemCart } from './actions/cartAction'
 import { Link } from 'react-router-dom'
 import Badge from 'react-bootstrap/Badge'
-import Overlay from 'react-bootstrap/Overlay'
-import Tooltip from 'react-bootstrap/Tooltip'
+import Toast from 'react-bootstrap/Toast'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
 class Products extends React.Component {
   constructor() {
     super();
     this.state = {
       show: false,
-      target: 'basket'
+      target: 'basket',
+      numberOfItems: 0
     };
   }
 
+    handleTotal = (num) => {
+        this.setState({numberOfItems: num});
+    }
+//add item to cart and to show popup
   handleClick = (id)=>{
-    this.props.addToItemCart(id);
-    this.setState({show: true});
+      this.props.addToItemCart(id);
+      let toast = document.getElementById(id)
+      let pop = toast ? toast : null
+      pop.classList.add('show')
+      setTimeout(() => {toast.classList.remove('show')}, 1000)
 }
   render() {
             let itemCheck = this.props.sort ? this.props.sort : this.props.items
@@ -41,19 +50,14 @@ class Products extends React.Component {
                               <p className={'card-text'}>{item.desc}</p>
                             </div>
                             <div className={'card-footer'}>
-                            <Button variant="primary" ref='basket' onClick={()=>{this.handleClick(item.id)}}>
+                            <Button variant="primary" onClick={()=>{this.handleClick(item.id)}}>
                               <FontAwesomeIcon icon={["fas", "cart-arrow-down"]}/>
                             </Button>
-                            <Overlay target={this.state.target.current} show={this.state.show} placement="auto">
-  {props => (
-    <Tooltip id="overlay-example" {...props}>
-      My Tooltip
-    </Tooltip>
-  )}
-</Overlay>
-
                             </div>
                           </div>
+                          <Toast id={item.id} ref='pop' show={this.state.show}>
+                            <Toast.Body>Product was added</Toast.Body>
+                          </Toast>
                       </div>
                     )})
       return (

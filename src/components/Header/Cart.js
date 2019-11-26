@@ -15,17 +15,11 @@ class Cart extends React.Component {
     super();
     this.state = {
       show: false,
-      count: 0,
-      numberOfItems: 0
+      count: 0
     };
   }
   togglePopup = () => {
     this.setState({show: !this.state.show});
-  }
-
-  handleTotal = (num) => {
-      this.setState({numberOfItems: num});
-      this.togglePopup()
   }
 
   itemRemove = (id) => {
@@ -86,9 +80,9 @@ class Cart extends React.Component {
                  )
          return(
       <>
-        <Button variant="primary" onClick={() => {console.log(this.props.items ? this.props.items.length : 0)}}>
+        <Button variant="primary" onClick={()=>{this.togglePopup()}}>
           <FontAwesomeIcon icon={["fas", "cart-arrow-down"]}/>
-          <span className="total-item">{this.state.numberOfItems}</span>
+          <span className="total-item">{this.props.items ? this.props.items.length : 0 }</span>
         </Button>
 
 

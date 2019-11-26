@@ -3,7 +3,8 @@
     margin-right: 15px;
     background-color: #eee;
     position: relative;
-    width: 80px;
+    min-width: 65px;
+    width: 55px;
     overflow: hidden
 }
 

@@ -7,6 +7,7 @@ import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import Cart from './Cart'
 import Logo from '../../images/logo.png'
+import { Link } from 'react-router-dom'
 
 import './Header.css'
 
@@ -15,7 +16,7 @@ export const Header = props => {
     <Navbar bg="light" fixed="top" variant="dark">
   <Navbar.Brand href="#home"><img src={Logo} width="200px"/></Navbar.Brand>
   <Nav className="mr-auto">
-    <Nav.Link href="/">Home</Nav.Link>
+    <Link to={`/`} className="nav-link">Home</Link>
   </Nav>
   <Cart />
 </Navbar>
