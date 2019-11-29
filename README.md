@@ -11,14 +11,14 @@ This simple application prototype shows how to create with React & Redux & Boots
 * Calculate automatically the total including also with shipping
 
 ## Demo example ##
-
+https://finalprojectkodilla.firebaseapp.com/
 
 # Requirements #
 
 * Node.js
 * NPM
 
-### How to install app ### 
+### How to install app ###
 ```bash
 npm install
 ```
