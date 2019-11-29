@@ -100,10 +100,10 @@ const mapDispatchToProps = (dispatch)=>{
                 dispatch(sortItems(items,'SORT_ITEMS_ZA'))
               break;
             case 'Price descending':
-                dispatch(sortItems(items,'SORT_ITEMS_PRICEI'))
+                dispatch(sortItems(items,'SORT_ITEMS_PRICED'))
               break;
             case 'Price ascending':
-                dispatch(sortItems(items,'SORT_ITEMS_PRICED'))
+                dispatch(sortItems(items,'SORT_ITEMS_PRICEI'))
               break;
             default:
           }

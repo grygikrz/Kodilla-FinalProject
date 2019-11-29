@@ -1,3 +1,8 @@
 img.productImage {
     width: 100%;
 }
+
+.toast {
+    z-index: 999;
+    position: absolute;
+}

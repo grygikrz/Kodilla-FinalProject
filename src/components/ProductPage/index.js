@@ -35,6 +35,7 @@ class ProductPage extends React.Component {
   handleClick = (id) => {
     this.setState({show: true});
     this.props.addToItemCart(id);
+    setTimeout(() => {this.setState({show: false})}, 1000)
   }
 
   render() {
